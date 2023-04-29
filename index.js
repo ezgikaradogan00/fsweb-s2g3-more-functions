@@ -16,10 +16,14 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  
+  const document = path.split("/")
+  return document[document.length-1];
+
 }
 
+console.log("görev1 " +dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"));
 /*
   GÖREV 2
   - Input:  Bir sayı arrayini parametre olarak alacak bir fonksiyon oluştur.
@@ -38,9 +42,21 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(arr) {
+  if(arr.length===0) {
+  return null;
 }
+
+
+let sonuc=0;
+for(let i=0; i<arr.length; i++) {
+    sonuc+= arr[i];
+}
+
+return sonuc / arr.length;
+}
+
+console.log("görev2 " + ortalamaBul([50, -26, 153, 7]));
 
 /*
   GÖREV 3
@@ -62,9 +78,22 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(arr, ortalamaBul) {
+  const ortalama = ortalamaBul(arr);
+  if (ortalama ===null) {
+    return null;
+  }
+
+  const buyukOrtalama =[]
+  for (let i=0; i<arr.length; i++) {
+    if(arr[i] >= ortalama){
+      buyukOrtalama.push(arr[i]);
+    }
+  }
+  return buyukOrtalama;
 }
+
+console.log("görev3 " +ortalamadanBuyukleriBul([50, -26, 153, 7], ortalamaBul));
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
